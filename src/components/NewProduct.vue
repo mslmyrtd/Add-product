@@ -33,6 +33,7 @@
           <div class="form-group">
             <label>Product Name</label>
             <input
+              v-model="product.title"
               type="text"
               class="form-control"
               placeholder="adını giriniz"
@@ -42,6 +43,7 @@
             <div class="form-group col-md-6">
               <label>Product Quantity</label>
               <input
+                v-model="product.quantity"
                 type="text"
                 class="form-control"
                 placeholder="adetini giriniz"
@@ -50,13 +52,16 @@
             <div class="form-group col-md-6">
               <label>Product Price</label>
               <input
+                v-model="product.price"
                 type="text"
                 class="form-control"
                 placeholder="fiyatını giriniz"
               />
             </div>
           </div>
-          <button class="btn btn-outline-info btn-block">Add!</button>
+          <button @click="addProduct" class="btn btn-outline-info btn-block">
+            Add!
+          </button>
         </div>
       </div>
     </div>
@@ -71,6 +76,7 @@ export default {
         quantity: null,
         price: null,
         selectedImage: null,
+        totalPrice: null,
       },
     };
   },
@@ -78,6 +84,10 @@ export default {
     onChange(e) {
       const file = e.target.files[0];
       this.product.selectedImage = URL.createObjectURL(file);
+    },
+    addProduct() {
+      this.product.totalPrice = this.product.quantity * this.product.price;
+      console.log(this.product);
     },
   },
 };
