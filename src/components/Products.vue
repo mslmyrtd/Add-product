@@ -7,18 +7,19 @@
         alt="Card image cap"
       />
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <small> <strong>Quantity : </strong> 1 </small>
+        <h5 class="card-title">{{ productList.title }}</h5>
+        <small> <strong>Quantity : </strong> {{ productList.quantity }} </small>
         <br />
-        <small> <strong>Price : </strong> 10 </small>
+        <small> <strong>Price : </strong> {{ productList.price }} </small>
         <br />
-        <small> <strong>Total : </strong> 10 </small>
+        <small> <strong>Total : </strong> {{ productList.totalPrice }} </small>
       </div>
     </app-product>
   </div>
 </template>
 
 <script>
+import { eventBus } from "../main";
 import Product from "./Product.vue";
 export default {
   components: {
@@ -28,6 +29,12 @@ export default {
     return {
       productList: [],
     };
+  },
+  created() {
+    eventBus.$on("productAdded", (product) => {
+      this.productList.push(product);
+      console.log(productList);
+    });
   },
 };
 </script>
