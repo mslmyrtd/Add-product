@@ -3,16 +3,16 @@
     <app-product v-for="product in productList" :key="product">
       <img
         class="card-img-top"
-        src="/src/assets/default.png"
-        alt="Card image cap"
+        :src="product.selectedImage"
+        :alt="product.title"
       />
       <div class="card-body">
-        <h5 class="card-title">{{ productList.title }}</h5>
-        <small> <strong>Quantity : </strong> {{ productList.quantity }} </small>
+        <h5 class="card-title"></h5>
+        <small> <strong>Quantity : </strong> {{ product.quantity }}</small>
         <br />
-        <small> <strong>Price : </strong> {{ productList.price }} </small>
+        <small> <strong>Price : </strong>{{ product.price }}</small>
         <br />
-        <small> <strong>Total : </strong> {{ productList.totalPrice }} </small>
+        <small> <strong>Total : </strong> {{ product.totalPrice }}</small>
       </div>
     </app-product>
   </div>
@@ -32,8 +32,12 @@ export default {
   },
   created() {
     eventBus.$on("productAdded", (product) => {
-      this.productList.push(product);
-      console.log(productList);
+      if (this.productList.length < 11) {
+        this.productList.push(product);
+        eventBus.$emit("progressBarUpdated", this.productList.length);
+      } else {
+        alert("Daha fazla ürün eklemeyezsin");
+      }
     });
   },
 };
