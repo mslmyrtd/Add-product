@@ -66,8 +66,19 @@
 export default {
   data() {
     return {
-      product: {},
+      product: {
+        title: null,
+        quantity: null,
+        price: null,
+        selectedImage: null,
+      },
     };
+  },
+  methods: {
+    onChange(e) {
+      const file = e.target.files[0];
+      this.product.selectedImage = URL.createObjectURL(file);
+    },
   },
 };
 </script>
