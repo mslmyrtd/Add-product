@@ -1,5 +1,5 @@
 <template>
-  <div class="progress">
+  <div class="progress" v-if="currentItem > 0">
     <div
       class="progress-bar bg-info"
       role="progressbar"

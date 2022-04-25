@@ -23,7 +23,7 @@
           type="button"
           @click="$refs.file.click()"
         >
-          Resim Seç
+          Select Picture
         </button>
       </div>
     </div>
@@ -36,7 +36,7 @@
               v-model="product.title"
               type="text"
               class="form-control"
-              placeholder="adını giriniz"
+              placeholder="enter product name"
             />
           </div>
           <div class="row">
@@ -46,7 +46,7 @@
                 v-model="product.quantity"
                 type="text"
                 class="form-control"
-                placeholder="adetini giriniz"
+                placeholder=" product quantity"
               />
             </div>
             <div class="form-group col-md-6">
@@ -55,7 +55,7 @@
                 v-model="product.price"
                 type="text"
                 class="form-control"
-                placeholder="fiyatını giriniz"
+                placeholder="enter price"
               />
             </div>
           </div>

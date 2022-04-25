@@ -6,8 +6,7 @@
     <br /><br />
     <app-progress></app-progress>
     <br /><br />
-    <h3 class="text-center">Added Product List</h3>
-    <hr />
+
     <app-products></app-products>
   </div>
 </template>
