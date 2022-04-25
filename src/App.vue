@@ -4,46 +4,24 @@
     <hr />
     <new-product></new-product>
     <br /><br />
-    <div class="progress">
-      <div
-        class="progress-bar bg-info"
-        role="progressbar"
-        style="width: 0%"
-        aria-valuenow="50"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        0/10
-      </div>
-    </div>
+    <app-progress></app-progress>
     <br /><br />
     <h3 class="text-center">Added Product List</h3>
     <hr />
-    <div class="row product-container">
-      <div class="col-md-2 card">
-        <img
-          class="card-img-top"
-          src="/src/assets/default.png"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <small> <strong>Adet : </strong> 1 </small>
-          <br />
-          <small> <strong>Fiyat : </strong> 10 </small>
-          <br />
-          <small> <strong>Tutar : </strong> 10 </small>
-        </div>
-      </div>
-    </div>
+    <app-products></app-products>
   </div>
 </template>
 
 <script>
-import NewProduct from "../src/components/NewProduct.vue";
+import NewProduct from "./components/NewProduct.vue";
+import Progress from "./components/Progress.vue";
+import Products from "./components/Products.vue";
+
 export default {
   components: {
     NewProduct,
+    appProgress: Progress,
+    appProducts: Products,
   },
   data() {
     return {
